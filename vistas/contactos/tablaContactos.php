@@ -19,7 +19,7 @@
 			<table class="table table-hover table-condensed" id="tablaContactosDT">
 				<thead>
 					<tr>
-						<th>Nombre y Apellido</th>						
+						<th>Nombre</th>						
 						<th>club</th>
 						<th>Cargo</th>						
 						<th>Tel</th>						

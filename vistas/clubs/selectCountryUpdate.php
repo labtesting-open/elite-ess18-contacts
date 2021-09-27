@@ -13,7 +13,7 @@
 	
  ?>
  	<label for="countryCodeSelectU">País</label>
- 	<select id="countryCodeSelectU" name="countryCodeSelectU" class="form-control">
+ 	<select id="countryCodeSelectU" name="countryCodeSelectU" class="selectpicker form-control" data-live-search="true" data-size="10">
 	 <?php 
         foreach ($countries as $key=>$country) {
             if (isset($country['country_code']) &&  $country['country_code'] == $countryCode) {
@@ -28,3 +28,7 @@
  	<?php
         } ?>
  	</select>
+
+	 <script>
+    	$('.selectpicker').selectpicker();
+    </script>
