@@ -13,7 +13,7 @@
 	
  ?>
  	<label for="groupIdSelectU">Grupo</label>
- 	<select id="groupIdSelectU" name="groupIdSelectU" class="form-control">
+ 	<select id="groupIdSelectU" name="groupIdSelectU" class="selectpicker form-control" data-live-search="true" data-size="10">
 	 	<option value="0">Selecciona un Grupo</option>
 	 <?php 
         foreach ($groups as $key=>$group) {
@@ -29,3 +29,8 @@
  	<?php
         } ?>
  	</select>
+
+	 
+	<script>
+    	$('.selectpicker').selectpicker();
+    </script>
