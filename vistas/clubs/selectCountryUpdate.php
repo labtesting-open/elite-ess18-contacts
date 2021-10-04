@@ -31,4 +31,13 @@
 
 	 <script>
     	$('.selectpicker').selectpicker();
+
+		$("#countryCodeSelectU").change(function(){
+			var countryCode = $("#countryCodeSelectU").val();
+			console.log("countryCodeSelectU " + countryCode);
+			
+			obtenerCategoriasPorPaisUpdate(countryCode);
+						
+		});
+
     </script>

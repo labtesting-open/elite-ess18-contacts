@@ -4,6 +4,8 @@
 
 	require_once "../../clases/Modelo.php";	
 
+
+
 	$modelo = new Modelo();
 
 	$countries = $modelo->obtenerPaises();
@@ -17,7 +19,18 @@
  		<option value="<?php echo $country['country_code'] ?>"><?php echo $country['name']; ?></option>
  	<?php } ?>
  	</select>
-
+	
 	 <script>
     	$('.selectpicker').selectpicker();
+
+
+		$("#countryCodeSelect").change(function(){
+			var countryCode = $("#countryCodeSelect").val();
+			console.log("countryCodeSelect " + countryCode);
+			
+			obtenerCategoriasPorPais(countryCode);
+						
+		});
+
+
     </script>

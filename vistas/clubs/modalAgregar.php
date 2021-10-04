@@ -45,8 +45,8 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $('#selectCountry').load("vistas/clubs/selectCountry.php");
-    $('#SelectCategory').load("vistas/clubs/selectCategory.php");
-    $('#SelectGroup').load("vistas/clubs/selectGroup.php?");
-  });
+    //console.log("modalAgregar open");
+    obtenerPaises();   
+  });  
+
 </script>

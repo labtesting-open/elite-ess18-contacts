@@ -17,12 +17,11 @@ $(document).ready(function(){
 
 		agregarClub();
 	});
-
+	
 
 	$('#btnActualizarClub').click(function(){
 		actualizarClub();
 	});
-
 
 });
 
@@ -95,10 +94,33 @@ function obtenerDatosClub(clubId) {
 			$('#mailsU').val(respuesta[0]['mails']);
 			$('#contactoId').val(respuesta[0]['id']);
 			$('#selectCountryU').load("vistas/clubs/selectCountryUpdate.php?country_code=" + countryCode);
-			$('#SelectCategoryU').load("vistas/clubs/selectCategoryUpdate.php?category_id=" + categoryId);
+			$('#SelectCategoryU').load("vistas/clubs/selectCategoryUpdate.php?country_code=" + countryCode + "&category_id=" + categoryId);
 			$('#SelectGroupU').load("vistas/clubs/selectGroupUpdate.php?group_id=" + groupId);		
 		}
 	});
+}
+
+function obtenerPaises() {	
+							
+	$('#selectCountry').load("vistas/clubs/selectCountry.php");
+	$('#SelectCategory').load("vistas/clubs/selectCategory.php?country_code=0");
+	$('#SelectGroup').load("vistas/clubs/selectGroup.php");
+	
+}
+
+
+function obtenerCategoriasPorPais(country_code) {	
+	console.log("obtenerCategorias del Pais = " + country_code);
+	
+	$('#SelectCategory').load("vistas/clubs/selectCategory.php?country_code=" + country_code);
+	
+}
+
+function obtenerCategoriasPorPaisUpdate(country_code) {	
+	console.log("obtenerCategorias del Pais = " + country_code);
+	
+	$('#SelectCategoryU').load("vistas/clubs/selectCategoryUpdate.php?country_code=" + country_code);
+	
 }
 
 function actualizarClub() {

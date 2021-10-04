@@ -4,11 +4,13 @@
 
 	require_once "../../clases/Modelo.php";	
 
+	$countryCode = isset($_GET['country_code'])? $_GET['country_code']: null;
+
+	$categoryId = isset($_GET['category_id'])? $_GET['category_id']: null;
+
 	$modelo = new Modelo();
 
-	$categories = $modelo->obtenerCategorias();
-
-	$categoryId = isset($_GET['category_id'])? $_GET['category_id']: null;	
+	$categories = $modelo->obtenerCategorias($countryCode);	
 	
 	
  ?>

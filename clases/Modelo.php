@@ -137,12 +137,15 @@ class Modelo extends Conexion
     public function obtenerPaises(){
 
         $query = "SELECT
-        id,
-        country_code,
-        name,
-        continent_code
-        FROM country_codes
-        ORDER BY name";
+        country.id,
+        country.country_code,
+        country.name,
+        country.continent_code
+        FROM country_codes country
+        INNER JOIN category category  ON
+        category.country_code = country.country_code
+        GROUP BY country.country_code
+        ORDER BY country.name";
 
         $datos = parent::runDMLQueryAndSerialize($query);           
 
@@ -150,13 +153,16 @@ class Modelo extends Conexion
         
     }
 
-    public function obtenerCategorias(){
+    public function obtenerCategorias($countryCode){
+
+        $where = (isset($countryCode))?" WHERE country_code='$countryCode'" : null;
 
         $query = "SELECT
         id,        
         name
         FROM category
-        ORDER BY name";
+        $where
+        ORDER BY order_show";   
         
         $datos = parent::runDMLQueryAndSerialize($query);           
 
