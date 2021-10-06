@@ -46,7 +46,7 @@
 <script type="text/javascript">
   $(document).ready(function(){
     //console.log("modalAgregar open");
-    obtenerPaises();   
+    obtenerDatos();   
   });  
 
 </script>

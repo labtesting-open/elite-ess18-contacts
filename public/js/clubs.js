@@ -94,17 +94,17 @@ function obtenerDatosClub(clubId) {
 			$('#mailsU').val(respuesta[0]['mails']);
 			$('#contactoId').val(respuesta[0]['id']);
 			$('#selectCountryU').load("vistas/clubs/selectCountryUpdate.php?country_code=" + countryCode);
-			$('#SelectCategoryU').load("vistas/clubs/selectCategoryUpdate.php?country_code=" + countryCode + "&category_id=" + categoryId);
-			$('#SelectGroupU').load("vistas/clubs/selectGroupUpdate.php?group_id=" + groupId);		
+			$('#SelectCategoryU').load("vistas/clubs/selectCategory.php?namevar=categoryIdSelectU&country_code=" + countryCode + "&category_id=" + categoryId);
+			$('#SelectGroupU').load("vistas/clubs/selectGroup.php?namevar=groupIdSelectU&group_id=" + groupId);		
 		}
 	});
 }
 
-function obtenerPaises() {	
-							
+function obtenerDatos() {
+	
 	$('#selectCountry').load("vistas/clubs/selectCountry.php");
-	$('#SelectCategory').load("vistas/clubs/selectCategory.php?country_code=0");
-	$('#SelectGroup').load("vistas/clubs/selectGroup.php");
+	$('#SelectCategory').load("vistas/clubs/selectCategory.php?namevar=categoryIdSelect&country_code=0");
+	$('#SelectGroup').load("vistas/clubs/selectGroup.php?namevar=groupIdSelect");	
 	
 }
 

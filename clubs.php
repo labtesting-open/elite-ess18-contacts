@@ -6,6 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<?php require_once "dependencias.php"; ?>
+	<script src="public/js/clubs.js"></script>
 </head>
 <body>
 	<div class="container-fluid">
@@ -16,6 +17,7 @@
 			<button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarClub" data-backdrop="static" data-keyboard="false">
 				<span class="fas fa-book"></span> Agregar club
 			</button>
+					
 			<hr class="my-4">
 			
 			<div id="cargaTablaClubs"></div>
@@ -27,6 +29,6 @@
 		?>
 	</div>
 
-	<script src="public/js/clubs.js"></script>
+	
 </body>
 </html>

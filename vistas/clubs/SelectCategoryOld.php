@@ -14,8 +14,14 @@
 	
 	
  ?>
- 	<label for="categoryIdSelectU">Categoría</label>
- 	<select id="categoryIdSelectU" name="categoryIdSelectU" class="selectpicker form-control" data-live-search="true" data-size="10">
+ 	<label for="categoryIdSelect">Categoría</label>
+ 	<select 
+	 id="categoryIdSelect" 
+	 name="categoryIdSelect" 
+	 class="selectpicker form-control" 
+	 data-live-search="true" 
+	 data-size="10">
+	 <option value="0">Selecciona una categoria</option>
 	 <?php 
         foreach ($categories as $key=>$category) {
             if (isset($category['id']) &&  $category['id'] == $categoryId) {
