@@ -40,7 +40,7 @@
 						<td><?php echo $club['category_name'] ?></td>
 						<td><?php echo $club['group_name'] ?></td>
 						<td><?php echo $club['datetime_updated'] ?></td>
-						<td><?php echo $club['tel1'] ?></td>						
+						<td><?php echo '+'.$club['prefix'].' '.$club['tel1'] ?></td>						
 						<td>
 							<span class="btn btn-warning btn-sm" onclick="obtenerDatosClub('<?php echo $clubId ?>')" data-toggle="modal" data-target="#modalActualizarClub">
 								<span class="fas fa-edit"></span>

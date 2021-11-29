@@ -18,11 +18,11 @@
 		<div class="table-responsive">
 			<table class="table table-hover table-condensed" id="tablaContactosDT">
 				<thead>
-					<tr>
-						<th>Nombre</th>						
-						<th>club</th>
+					<tr>											
+						<th>Club</th>
 						<th>Cargo</th>						
-						<th>Tel</th>						
+						<th>Mail</th>
+						<th>Tel</th>			
 						<th></th>
 					</tr>
 				</thead>
@@ -31,12 +31,17 @@
 						foreach($contactos as $key=>$contact){			
 							$contactoId = $contact['id'];		
 					?>
-					<tr>
-						<td><?php echo $contact['name']. ' '.$contact['surname'] ?></td>						
+					<tr>												
 						<td><?php echo $contact['club_name'] ?></td>
 						<td><?php echo $contact['charge'] ?></td>	
-						<td><?php echo $contact['tel1'] ?></td>					
-						
+						<td><?php echo $contact['mail'] ?></td>	
+						<td><?php 
+							if(empty($contact['tel1'])){ 
+								echo $contact['tel2'];
+							}else{
+								echo $contact['tel1'];
+                            }?>
+						</td>				
 						<td>
 							<span class="btn btn-warning btn-sm" onclick="obtenerDatosContacto('<?php echo $contactoId ?>')" data-toggle="modal" data-target="#modalActualizarContacto">
 								<span class="fas fa-edit"></span>

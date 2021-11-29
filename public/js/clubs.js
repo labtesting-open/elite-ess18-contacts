@@ -91,8 +91,9 @@ function obtenerDatosClub(clubId) {
 			$('#chargeU').val(respuesta[0]['charge']);
 			$('#tel1U').val(respuesta[0]['tel1']);
 			$('#tel2U').val(respuesta[0]['tel2']);
+			$('#prefixU').val('+' + respuesta[0]['prefix']);
 			$('#mailsU').val(respuesta[0]['mails']);
-			$('#contactoId').val(respuesta[0]['id']);
+			$('#contactoId').val(respuesta[0]['id']);			
 			$('#selectCountryU').load("vistas/clubs/selectCountryUpdate.php?country_code=" + countryCode);
 			$('#SelectCategoryU').load("vistas/clubs/selectCategory.php?namevar=categoryIdSelectU&country_code=" + countryCode + "&category_id=" + categoryId);
 			$('#SelectGroupU').load("vistas/clubs/selectGroup.php?namevar=groupIdSelectU&group_id=" + groupId);		

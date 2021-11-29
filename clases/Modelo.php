@@ -15,6 +15,7 @@ class Modelo extends Conexion
         contact.surname,
         contact.charge,
         contact.tel1,
+        contact.tel2,
         contact.mail,
         club.name as club_name
         FROM contacts as contact
@@ -113,6 +114,7 @@ class Modelo extends Conexion
         club.group_id,
         club.logo,
         club.mails,
+        prefixs.code AS prefix,
         club.tel1,
         club.tel2,
         country.name AS country_name,
@@ -126,6 +128,8 @@ class Modelo extends Conexion
         ON category.id = club.category_id
         LEFT JOIN group_class groupClass 
         ON groupClass.id = club.group_id
+        LEFT JOIN phones_prefixs prefixs 
+        ON prefixs.iso2 = club.country_code
         ORDER BY club.name";
 
         $datos = parent::runDMLQueryAndSerialize($query);           
@@ -211,16 +215,19 @@ class Modelo extends Conexion
     public function obtenerDatosClub($clubId){       
 
         $query = "SELECT
-        id,
-        name,
-        country_code,
-        category_id,
-        group_id, 
-        tel1,
-        tel2,
-        mails
-        FROM clubs        
-        WHERE id=$clubId";
+        clubs.id,
+        clubs.name,
+        clubs.country_code,
+        clubs.category_id,
+        clubs.group_id,
+        prefixs.code AS prefix, 
+        clubs.tel1,
+        clubs.tel2,
+        clubs.mails
+        FROM clubs clubs
+        LEFT JOIN phones_prefixs prefixs 
+        ON prefixs.iso2 = clubs.country_code        
+        WHERE clubs.id=$clubId";
 
         $datos = parent::runDMLQueryAndSerialize($query);           
 

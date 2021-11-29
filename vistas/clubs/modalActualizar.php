@@ -24,6 +24,9 @@
 
           <div id="SelectGroupU"></div>
 
+          <label for="prefixU">Prefijo</label>
+          <input type="text" class="form-control" id="prefixU" name="prefixU" readonly>
+
           <label for="tel1U">Telefono 1</label>
           <input type="text" class="form-control" id="tel1U" name="tel1U">
 
