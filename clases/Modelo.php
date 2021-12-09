@@ -304,6 +304,16 @@ class Modelo extends Conexion
     }
 
 
+    public function eliminarCategoria($categoriaId){       
+
+        $query = "DELETE FROM category WHERE id=$categoriaId";        
+                    
+        $queryResult = parent::runDDLQuery($query);         
+
+        return $queryResult;  
+    }
+
+
     public function actualizarClub($datos){
         
         $clubId = $datos['clubId'];

@@ -39,7 +39,7 @@ function agregarCategoria() {
 	});
 }
 
-function eliminarCategoria(idCategoria) {
+function eliminarCategoria(categoriaId) {
 	swal({
 		title: "¿Esta seguro de eliminar esta categoria?",
 		text: "Una vez eliminado no podra ser recuperado!",
@@ -51,7 +51,7 @@ function eliminarCategoria(idCategoria) {
 		if (willDelete) {
 			$.ajax({
 				type: "POST",
-				data: "idCategoria=" + idCategoria,
+				data: "categoriaId=" + categoriaId,
 				url: "procesos/categorias/eliminarCategoria.php",
 				success:function(respuesta) {
 					respuesta = respuesta.trim();

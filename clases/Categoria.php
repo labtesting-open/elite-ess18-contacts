@@ -28,9 +28,9 @@
 			
 		}
 
-		// public function eliminarClub($clubId){
-		// 	return $this->modelo->eliminarClub($clubId);
-		// }
+		public function eliminar($categoriaId){
+			return $this->modelo->eliminarCategoria($categoriaId);
+		}
 
 		public function actualizarCategoria($datos) {
 
