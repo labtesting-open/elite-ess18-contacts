@@ -2,12 +2,15 @@ $(document).ready(function(){
 
 	$('#cargaTablaCategorias').load('vistas/categorias/tablaCategorias.php');
 	
-	$('#btnGuardarCategoria').click(function(){
-
-		if ($('#nombreCategoria').val() == "") {
-			swal("Debes agregar un nombre de categoria!");
+	$('#btnAgregarCategoria').click(function(){
+		
+		if ($('#name').val() == "") {
+			swal("Debes agregar nombre a la categoría");
 			return false;
-		}
+		} else if ($('#countryCodeSelect').val() == 0) {
+			swal("Debes seleccionar un país");
+			return false;
+		} 
 
 		agregarCategoria();
 	});
@@ -64,17 +67,29 @@ function eliminarCategoria(idCategoria) {
 	});
 }
 
-function obtenerDatosCategoria(idCategoria) {
+
+
+function obtenerDatos() {
+	
+	$('#selectCountry').load("vistas/categorias/selectCountry.php");
+}
+
+function obtenerDatosCategoria(categoriaId) {	
 	$.ajax({
 		type:"POST",
-		data:"idCategoria=" + idCategoria,
+		data:"categoriaId=" + categoriaId,
 		url:"procesos/categorias/obtenerDatosCategoria.php",
 		success:function(respuesta) {
+			
 			respuesta = jQuery.parseJSON(respuesta);
+			
+			countryCode = respuesta[0]['country_code'];					
 
-			$('#idCategoria').val(respuesta['idCategoria']);
-			$('#nombreCategoriaU').val(respuesta['nombre']);
-			$('#descripcionU').val(respuesta['descripcion']);
+			$('#categoriaId').val(categoriaId);
+			$('#nameU').val(respuesta[0]['name']);
+			$('#order_showU').val(respuesta[0]['order_show']);
+			$('#selectCountryU').load("vistas/categorias/selectCountryUpdate.php?country_code=" + countryCode);
+
 		}
 	});
 }

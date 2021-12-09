@@ -174,6 +174,25 @@ class Modelo extends Conexion
         
     }
 
+    public function obtenerTodasLasCategoriasPorPais(){        
+
+        $query = "SELECT
+        categories.id,
+        categories.country_code,
+        countries.name AS country_name,
+        categories.name,
+        categories.order_show
+        FROM category categories
+        LEFT JOIN country_codes countries 
+        ON countries.country_code = categories.country_code
+        ORDER BY categories.country_code, categories.order_show";   
+        
+        $datos = parent::runDMLQueryAndSerialize($query);           
+
+        return $datos;
+        
+    }
+
     public function obtenerGrupos(){
 
         $query = "SELECT
@@ -212,6 +231,22 @@ class Modelo extends Conexion
     }
 
 
+    public function agregarCategoria($datos){        
+
+        $name = $datos['name'];
+        $country_code = $datos['country_code'];       
+        $order_show = isset($datos['order_show'])? $datos['order_show']: 1;       
+
+       
+        $query = "INSERT INTO category(name, country_code, order_show)
+        VALUES ('$name', '$country_code', $order_show)";       
+
+        $queryResult = parent::runDDLQuery($query);         
+
+        return $queryResult;  
+    }
+
+
     public function obtenerDatosClub($clubId){       
 
         $query = "SELECT
@@ -228,6 +263,22 @@ class Modelo extends Conexion
         LEFT JOIN phones_prefixs prefixs 
         ON prefixs.iso2 = clubs.country_code        
         WHERE clubs.id=$clubId";
+
+        $datos = parent::runDMLQueryAndSerialize($query);           
+
+        return $datos;
+    }
+
+
+    public function obtenerDatosCategoria($categoriaId){       
+
+        $query = "SELECT
+        id,
+        name,
+        country_code,
+        order_show
+        FROM category
+        WHERE id=$categoriaId";
 
         $datos = parent::runDMLQueryAndSerialize($query);           
 
@@ -278,6 +329,25 @@ class Modelo extends Conexion
             $query.=",group_id=$groupId ";
         }
         $query.= " WHERE id=$clubId";
+                    
+        $queryResult = parent::runDDLQuery($query);         
+
+        return $queryResult;  
+    }
+
+
+    public function actualizarCategoria($datos){
+        
+        $categoriaId = $datos['categoriaId'];
+        $name = $datos['name'];  
+        $order_show = $datos['order_show'];       
+        $countryCode = $datos['country_code'];       
+
+        $query = "UPDATE category SET 
+        name='$name', 
+        country_code='$countryCode',
+        order_show=$order_show            
+        WHERE id=$categoriaId";
                     
         $queryResult = parent::runDDLQuery($query);         
 

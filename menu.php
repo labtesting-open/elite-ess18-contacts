@@ -36,7 +36,7 @@
       </li>
 
       <li class="nav-item active">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="categorias.php">
           <span class="fas fa-layer-group"></span> Categorias
         </a>
       </li>

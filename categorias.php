@@ -8,13 +8,13 @@
 	<?php require_once "dependencias.php"; ?>
 </head>
 <body>
-	<div class="container">
+	<div class="container-fluid">
 		<?php require_once "menu.php"; ?>
 
-		<div class="jumbotron">
-			<h1 class="display-4">Clubs</h1>
+		<div class="">
+			<h1 class="display-4">Categorias</h1>
 			<button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCategoria">
-				<span class="fas fa-book"></span> Agregar club
+				<span class="fas fa-book"></span> Agregar categoria
 			</button>
 			<hr class="my-4">
 			
