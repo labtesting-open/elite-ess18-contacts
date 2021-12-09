@@ -15,9 +15,17 @@
 
         }
 
-        public function validar($datos) {			
+        public function validar($params) {			
 
-			return $this->modelo->validarUsuario($datos);			
+			$userData = array();
+
+			if(Utils::scapeParams($params))
+			{
+				$userData = $this->modelo->validarUsuario($params);
+			}
+
+			return $userData;
+			
 			 
 		}
 

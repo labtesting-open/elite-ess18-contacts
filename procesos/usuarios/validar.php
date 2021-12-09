@@ -2,18 +2,22 @@
 namespace ContactsEss18;
 
 require_once "../../clases/Usuario.php";
+require_once "../../clases/Utils.php";
 
 $usuario = new Usuario();
 
 
-$datos = array(
+
+$params = array(
     "user" => $_POST['user'],
     "password" => $_POST['password']   
 );
 
-$resultado = $usuario->validar($datos);
+$resultado = array();
 
-//print_r($resultado);
+if(Utils::scapeParams($params)){
+   $resultado = $usuario->validar($params);
+}
 
 if(count($resultado) > 0){  
    SESSION_START();
