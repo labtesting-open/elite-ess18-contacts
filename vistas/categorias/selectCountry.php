@@ -8,7 +8,7 @@
 
 	$modelo = new Modelo();
 
-	$countries = $modelo->obtenerPaises();
+	$countries = $modelo->obtenerTodosLosPaises();
 	
 	
  ?>

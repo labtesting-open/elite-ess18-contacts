@@ -157,6 +157,22 @@ class Modelo extends Conexion
         
     }
 
+    public function obtenerTodosLosPaises(){
+
+        $query = "SELECT
+        country.id,
+        country.country_code,
+        country.name,
+        country.continent_code
+        FROM country_codes country        
+        ORDER BY country.name";
+
+        $datos = parent::runDMLQueryAndSerialize($query);           
+
+        return $datos;
+        
+    }
+
     public function obtenerCategorias($countryCode){
 
         $where = (isset($countryCode))?" WHERE country_code='$countryCode'" : null;

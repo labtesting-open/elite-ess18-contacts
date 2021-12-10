@@ -6,7 +6,7 @@
 
 	$modelo = new Modelo();
 
-	$countries = $modelo->obtenerPaises();
+	$countries = $modelo->obtenerTodosLosPaises();
 
 	$countryCode = isset($_GET['country_code'])? $_GET['country_code']: null;	
 	
